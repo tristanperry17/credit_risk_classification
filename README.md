@@ -5,30 +5,37 @@
 In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
 
 * Explain the purpose of the analysis.
+  
     The analysis in this notebook aids in the prediction of loan default risk. 
 
 * Explain what financial information the data was on, and what you needed to predict.
+  
     Information available in this dataset includes loan size and interest rate, borrower information such as income, accounts and previous defaults.
     Status of a loan, or risk of default is the metric that this notebook seeks to build models to predict.
 
 * Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-    From instruction: 
+  
+    From instruction:
+  
         "A value of 0 in the “loan_status” column means that the loan is healthy. A value of 1 means that the loan has a high risk of defaulting."
+  
     Loan status contains boolean values, so given all other columns in the dataset, a predictive model for loan status of a value of "1" or "0" may provide indication
     of default risk for a potential new loan, based on loan and borrower information.
 
 * Describe the stages of the machine learning process you went through as part of this analysis.
-    The data is first split into training and testing sets. Loan status is the value being tested, and loan and borrower information is used to
-    indicate loan status. Loan status (y) is designated as the labels set, and the remaining columns (X) are designated as features.
+  
+    * The data is first split into training and testing sets. Loan status is the value being tested, and loan and borrower information is used to
+      indicate loan status. Loan status (y) is designated as the labels set, and the remaining columns (X) are designated as features.
 
-    The "train_test_split" function is used to split the data (documentation: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html). The genrated "y_train" and "X_train" is used to fit a logistic regression model that analyzes the data to find correlation between
-    loan and borrower data, and loan status.
+    * The "train_test_split" function is used to split the data (documentation: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html). The genrated "y_train" and               "X_train"     is used to fit a logistic regression model that analyzes the data to find correlation between
+      loan and borrower data, and loan status.
 
-    Predictions from this model are saved as "prediction" by fittting the model to the testing feature data "X_test".
+    * Predictions from this model are saved as "prediction" by fittting the model to the testing feature data "X_test".
 
-    A confusion matrix is generated using "y_test" and "prediction", as well as a classification report to deisplay results of the model. 
+    * A confusion matrix is generated using "y_test" and "prediction", as well as a classification report to deisplay results of the model. 
 
 * Briefly touch on any methods you used (e.g., `LogisticRegression`, or any other algorithms).
+  
     "LogisticRegression" (documentation: https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) is a model
     that aids in classification of the binary metric, such as loan status for this data. Logistic regression uses a sigmoid funtion to classify data trends,
     due to bounds of the function being 1 and 0 such as in a binary case. If the predicted value is higher than 0.5, it is classified as 1. Values
